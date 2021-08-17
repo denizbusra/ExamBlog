@@ -1,0 +1,104 @@
+﻿        <!-- Page Header-->
+<header class="masthead" style="background-image: url('assets/img/contact-bg.jpg');background-color:orangered">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="page-heading">
+                    <h1>İletişim</h1>
+                    <span class="subheading">Bizimle iletişime geçmeye ne dersiniz?</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Main Content-->
+<main class="mb-4">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <p>İletişime geçmek ister misiniz? Bize mesaj göndermek için aşağıdaki formu doldurun, en kısa sürede size geri döneceğiz!</p>
+                <div class="my-5">
+                  
+                    <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+
+                        <div class="form-floating">
+                            <input class="form-control" id="inputName" name="inputName" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                            <label for="name">İsim Soyisim</label>
+                            <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                        </div>
+
+                        <div class="form-floating">
+                            <input class="form-control" id="inputEmail" name="inputEmail" type="email" placeholder="Enter your email..." data-sb-validations="required,email" />
+                            <label for="email">Email Adresi</label>
+                            <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+                            <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                        </div>
+
+                        <div class="form-floating">
+                            <input class="form-control" id="inputPhone" type="tel"  name="inputPhone" placeholder="Enter your phone number..." data-sb-validations="required" />
+                            <label for="phone">Telefon Numarası</label>
+                            <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                        </div>
+
+                        <div class="form-floating">
+                            <textarea class="form-control" id="inputMessage"  name="inputMessage" placeholder="Enter your message here..." style="height: 12rem" data-sb-validations="required"></textarea>
+                            <label for="message">Mesajınız...</label>
+                            <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                        </div>
+
+                        <br />
+ 
+                        <button type="button" class="btn btn-primary" id="myBtn">Gönder!</button>
+
+                    </form>
+                </div>
+
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2239.7770290379076!2d29.025573262324343!3d40.99443778501054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac790b17ba89d%3A0xd2d24ea0437a7ee2!2zS2FkxLFrw7Z5L8Swc3RhbmJ1bA!5e0!3m2!1str!2str!4v1627876933872!5m2!1str!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+            </div>
+        </div>
+    </div>
+</main>
+
+@section Scripts {
+
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#myBtn").click(function () {
+
+                let name = document.forms["contactForm"]["inputName"].value;
+                if (name == "") {
+                    alert("İsim zorunludur");
+                    return false;
+                }
+
+                let email = document.forms["contactForm"]["inputEmail"].value;
+                if (email == "") {
+                    alert("Email zorunludur");
+                    return false;
+                }
+
+                let phone = document.forms["contactForm"]["inputPhone"].value;
+                if (phone == "") {
+                    alert("Telefon zorunludur");
+                    return false;
+                }
+
+                let message = document.forms["contactForm"]["inputMessage"].value;
+                if (message == "") {
+                    alert("Mesaj zorunludur");
+                    return false;
+                }
+
+                alert("Mesaj gönderildi.");
+
+                document.getElementById("inputName").value = "";
+                document.getElementById("inputEmail").value = "";
+                document.getElementById("inputPhone").value = "";
+                document.getElementById("inputMessage").value = "";
+            });
+        });
+    </script>
+}
